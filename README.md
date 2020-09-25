@@ -1,9 +1,25 @@
 # Project Name
 
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
+Redux-Feedback-Loop
 
 ## Description
 
-Your project description goes here. What problem did you solve? How did you solve it?
+Duration: Weekend Challenge
 
-Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
+Goal: To create a feedback Single Page App that submits information to a database
+
+### PREREQUISITES
+
+- Node
+- REACT
+- REDUX
+- SQL
+
+### INSTALLATION
+
+1. Run `npm install`
+2. Run `npm run server`
+3. Open new terminal
+4. Run `npm run client`
+5. Create database named `prime-feedback`
+6. Create table as directed in `data.sql` file
