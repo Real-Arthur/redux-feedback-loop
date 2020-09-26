@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
+import Button from '@material-ui/core/Button';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
+import TextField from '@material-ui/core/TextField';
 
 class Support extends Component {
     state = {
@@ -37,17 +40,24 @@ class Support extends Component {
     }
     }
 
+    back = () => {
+        this.props.history.push('/understanding')
+    }
+
     render() {
         return(
             <div>
                 <h1>How well are yu being supported?</h1>
-                <input 
+                <TextField 
                 type="number"
                 min="1"
                 max="5"
                 onChange={(event) => this.handleChangeFor(event)}
             />
-                <button onClick={()=>this.onNext(this.state.number)}>NEXT</button>
+            <ButtonGroup>
+                <Button variant="contained" color="primary" onClick={()=>this.onNext(this.state.number)}>NEXT</Button>
+                <Button variant="outlined" color="secondary" onClick={() => this.back()}>BACK</Button>
+            </ButtonGroup>
             </div>
         )
     }

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 
 class Feeling extends Component {
     state = {
@@ -42,13 +44,13 @@ class Feeling extends Component {
         return(
             <div>
             <h1>How are you feeling today?</h1>
-            <input 
+            <TextField 
             type="number"
             min="1"
             max="5"
             onChange={(event) => this.handleChangeFor(event)}
             />
-            <button onClick={()=>this.onNext(this.state.number)}>NEXT</button>
+            <Button variant="contained" color="primary" onClick={()=>this.onNext(this.state.number)}>NEXT</Button>
             </div>
             
         )

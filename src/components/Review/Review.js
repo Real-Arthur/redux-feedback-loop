@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import axios from 'axios';
+import Button from '@material-ui/core/Button';
 
 class Review extends Component {
     state = {
@@ -19,6 +20,7 @@ class Review extends Component {
         }).then((response) => {
             console.log('response post', response);
             this.props.history.push('/Success');
+            this.props.renderFeedback();
         }).catch((error)=> {
             console.log('error is', error)
         })
@@ -38,7 +40,7 @@ class Review extends Component {
         <p>Understanding: {this.state.understanding}</p>
         <p>Support: {this.state.support}</p>
         <p>Comments: {this.state.comments}</p>
-        <button onClick={() => this.submit()}>SUBMIT</button>
+        <Button variant="contained" color="primary" onClick={() => this.submit()}>SUBMIT</Button>
             </div>
             
         )

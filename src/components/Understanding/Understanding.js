@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
+import Button from '@material-ui/core/Button';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
+import TextField from '@material-ui/core/TextField';
 
 class Understanding extends Component {
     state = {
@@ -37,19 +40,26 @@ class Understanding extends Component {
         }
     }
 
+    back = () => {
+        this.props.history.push('/')
+    }
+
     render() {
         console.log('this is understanding', this.state.number)
         return(
             <div>
                 <h1>How well are you understanding the content?</h1>
-                <input 
+                <TextField 
                 type="number"
                 min="1"
                 max="5"
                 onChange={(event) => this.handleChangeFor(event)}
                 
             />
-            <button onClick={()=>this.onNext(this.state.number)}>NEXT</button>
+            <ButtonGroup>
+            <Button variant="contained" color="primary" onClick={() => this.onNext(this.state.number)}>NEXT</Button>
+            <Button variant="outlined" color="secondary" onClick={() => this.back()}>BACK</Button>
+            </ButtonGroup> 
             </div>
         )
     }

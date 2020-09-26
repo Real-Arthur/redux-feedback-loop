@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import axios from 'axios';
+import Button from '@material-ui/core/Button';
 
 class Success extends Component {
     
@@ -17,7 +17,7 @@ class Success extends Component {
         return(
             <div>
             <h1>Thank You!</h1>
-            <button onClick={this.success}>Leave New Feedback</button>
+            <Button variant="contained" color="primary" onClick={this.success}>Leave New Feedback</Button>
             </div>
             
         )

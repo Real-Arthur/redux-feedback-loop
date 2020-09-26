@@ -65,7 +65,7 @@ class App extends Component {
           </Route>
           {/* REVIEW */}
           <Route path='/review'>
-            <Review />
+            <Review renderFeedback={this.renderFeedback}/>
           </Route>
           {/* SUCCESS */}
           <Route path='/success'>
@@ -73,7 +73,7 @@ class App extends Component {
           </Route>
           {/* ADMIN */}
           <Route path='/admin'>
-            <Admin renderFeedback={this.renderFeedback}/>
+            <Admin />
           </Route>
       </div>
       </Router>

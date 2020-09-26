@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
+import Button from '@material-ui/core/Button';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
+import { TextField } from '@material-ui/core';
 
 class Comments extends Component {
     state = {
@@ -25,15 +28,22 @@ class Comments extends Component {
             this.props.history.push('/review');
     }
 
+    back = () => {
+        this.props.history.push('/support')
+    }
+
     render() {
         return(
             <div>
                 <h1>Any comments you want to leave?</h1>
-                <input 
+                <TextField 
                 type="text"
                 onChange={(event) => this.handleChangeFor(event)}
             />
-            <button onClick={()=>this.onNext(this.state.comments)}>NEXT</button>
+            <ButtonGroup>
+            <Button variant="contained" color="primary" onClick={()=>this.onNext(this.state.comments)}>NEXT</Button>
+            <Button variant="outlined" color="secondary" onClick={() => this.back()}>BACK</Button>
+            </ButtonGroup>
             </div>
         )
     }

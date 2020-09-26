@@ -21,6 +21,7 @@ npm install redux
 npm install redux-logger
 npm install react-router-dom
 npm install redux react-redux
+npm install @material-ui/core
 
 1. Run `npm install`
 2. Run `npm run server`
