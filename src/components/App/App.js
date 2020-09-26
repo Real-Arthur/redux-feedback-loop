@@ -18,8 +18,15 @@ class App extends Component {
       method: 'GET',
       url: '/feedback'
     }).then((response) => {
-      console.log('App.js response is', response)
-      console.log('App.js response data is', response.data)
+      console.log('App.js response is', response);
+      console.log('App.js response data is', response.data);
+      this.props.dispatch({
+        type: 'GET_FEEDBACK',
+        payload: response.data
+      });
+    })
+    .catch((error) => {
+      console.log('App.js GET error', error)
     })
   }
 
