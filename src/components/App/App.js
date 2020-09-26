@@ -9,6 +9,20 @@ import Support from '../Support/Support';
 import Understanding from '../Understanding/Understanding';
 
 class App extends Component {
+  componentDidMount() {
+    this.renderFeedback();
+  }
+
+  renderFeedback = () => {
+    axios({
+      method: 'GET',
+      url: '/feedback'
+    }).then((response) => {
+      console.log('App.js response is', response)
+      console.log('App.js response data is', response.data)
+    })
+  }
+
   render() {
     return (
       <Router>
