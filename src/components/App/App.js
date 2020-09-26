@@ -7,6 +7,7 @@ import Comments from '../Comments/Comments';
 import Feelings from '../Feelings/Feelings';
 import Support from '../Support/Support';
 import Understanding from '../Understanding/Understanding';
+// import Review from '../Review/Review';
 
 class App extends Component {
   componentDidMount() {

@@ -2,25 +2,9 @@ import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
-class Feeling extends Component {
+class Review extends Component {
     state = {
-        number: 0
-    }
-
-    handleChangeFor = (event) => {
-        console.log('this is a button', event.target.value)
-        if(event.target.value >= 1 && event.target.value <= 5) {
-            this.setState({
-                ...this.state,
-                number: event.target.value
-            })
-        } else {
-            this.setState({
-                ...this.state,
-                number: 0
-            })
-            alert(`1-5`)
-        }
+       
     }
 
     render() {
@@ -42,4 +26,4 @@ class Feeling extends Component {
 }
 
 
-export default connect()(Feeling);
+export default connect()(Review);
