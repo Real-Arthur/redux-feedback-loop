@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
+import Review from '../Review/Review'
 
 class Comments extends Component {
     state = {
@@ -15,7 +16,7 @@ class Comments extends Component {
             })
     }
 
-    onNext = (value) => {
+    onNext = (value, props) => {
             console.log('payload is', this.state.number);
             this.props.dispatch({
                 type: "GET_COMMENTS",
@@ -34,7 +35,6 @@ class Comments extends Component {
                 onChange={(event) => this.handleChangeFor(event)}
             />
             <button onClick={()=>this.onNext(this.state.comments)}>NEXT</button>
-
             </div>
         )
     }

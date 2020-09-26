@@ -17,7 +17,7 @@ const feedbackReducer = (state ={}, action) => {
     return state;
 };
 
-const feelingReducer = (state={}, action) => {
+const feelingReducer = (state=[], action) => {
     // console.log('feeling reducer payload', action.payload);
     // console.log('feeling action type', action.type);
     if(action.type === 'GET_FEELING') {
@@ -27,7 +27,7 @@ const feelingReducer = (state={}, action) => {
     return state;
 }
 
-const understandingReducer = (state={}, action) => {
+const understandingReducer = (state=[], action) => {
     // console.log('understanding reducer payload', action.payload);
     // console.log('understanding action type', action.payload);
     if(action.type === 'GET_UNDERSTANDING') {
@@ -37,7 +37,7 @@ const understandingReducer = (state={}, action) => {
     return state;
 }
 
-const supportReducer = (state={}, action) => {
+const supportReducer = (state=[], action) => {
     console.log('understanding reducer payload', action.payload);
     console.log('understanding action type', action.payload);
     if(action.type === 'GET_SUPPORT') {
@@ -47,7 +47,7 @@ const supportReducer = (state={}, action) => {
     return state;
 }
 
-const commentsReducer = (state={}, action) => {
+const commentsReducer = (state=[], action) => {
     console.log('understanding reducer payload', action.payload);
     console.log('understanding action type', action.payload);
     if(action.type === 'GET_COMMENTS') {
@@ -65,7 +65,8 @@ const reduxStore = createStore(
         understandingReducer,
         supportReducer,
         commentsReducer
-    }),
+        }
+    ),
     applyMiddleware(logger)
 )
 

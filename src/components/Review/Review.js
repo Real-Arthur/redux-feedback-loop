@@ -7,23 +7,26 @@ class Review extends Component {
        
     }
 
+
     render() {
-        console.log('number is', this.state.number);
+
+        console.log('reduxState is', this.props.reduxState);
         return(
             <div>
-            <h1>How are you feeling today?</h1>
-            <input 
-            type="number"
-            min="1"
-            max="5"
-            onChange={(event) => this.handleChangeFor(event)}
-            />
-            <button onClick={this.onNext}>NEXT</button>
+            <h1>Review Your Feedback</h1>
+            
             </div>
             
         )
     }
 }
 
+const mapStateToProps = (reduxState) => {
+    return {
+        reduxState
+        
+        }
+    }
 
-export default connect()(Review);
+
+export default connect(mapStateToProps)(withRouter(Review));
