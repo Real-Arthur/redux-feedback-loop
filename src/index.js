@@ -7,7 +7,9 @@ import {createStore, combineReducers, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
 import logger from 'redux-logger';
 
-const feedbackReducer = (state ={}, action) => {
+const initialState = [];
+
+const feedbackReducer = (state =[], action) => {
     // console.log('feedbackReducer action payload', action.payload);
     // console.log('feedbackReducer type', action.type);
     if(action.type === 'GET_FEEDBACK') {
@@ -24,6 +26,9 @@ const feelingReducer = (state=[], action) => {
         let newFeeling = action.payload;
         return newFeeling;
     }
+    if(action.type === 'RESET') {
+        state = initialState
+    }
     return state;
 }
 
@@ -33,6 +38,9 @@ const understandingReducer = (state=[], action) => {
     if(action.type === 'GET_UNDERSTANDING') {
         let newUnderstanding = action.payload;
         return newUnderstanding;
+    }
+    if(action.type === 'RESET') {
+        state = initialState
     }
     return state;
 }
@@ -44,6 +52,9 @@ const supportReducer = (state=[], action) => {
         let newSupport = action.payload;
         return newSupport;
     }
+    if(action.type === 'RESET') {
+        state = initialState
+    }
     return state;
 }
 
@@ -53,6 +64,19 @@ const commentsReducer = (state=[], action) => {
     if(action.type === 'GET_COMMENTS') {
         let newComments = action.payload;
         return newComments;
+    }
+    if(action.type === 'RESET') {
+        state = initialState
+    }
+    return state;
+}
+
+const reset = (state =[], action) => {
+    if(action.type === 'RESET') {
+        state = initialState
+    }
+    if(action.type === 'RESET') {
+        state = initialState
     }
     return state;
 }
@@ -64,7 +88,7 @@ const reduxStore = createStore(
         feelingReducer,
         understandingReducer,
         supportReducer,
-        commentsReducer
+        commentsReducer,
         }
     ),
     applyMiddleware(logger)

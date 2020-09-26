@@ -24,6 +24,7 @@ class Understanding extends Component {
     }
 
     onNext = (value) => {
+        if (this.state.number !== 0){
         console.log('payload is', this.state.number);
         this.props.dispatch({
             type: "GET_UNDERSTANDING",
@@ -31,6 +32,9 @@ class Understanding extends Component {
         });
         console.log('this.props.history', this.props.history);
         this.props.history.push('/support');
+        } else {
+            alert('Submit 1-5')
+        }
     }
 
     render() {

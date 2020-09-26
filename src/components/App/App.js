@@ -8,6 +8,8 @@ import Feelings from '../Feelings/Feelings';
 import Support from '../Support/Support';
 import Understanding from '../Understanding/Understanding';
 import Review from '../Review/Review';
+import Success from '../Success/Success';
+import Admin from '../Admin/Admin'
 
 class App extends Component {
   componentDidMount() {
@@ -17,7 +19,7 @@ class App extends Component {
   renderFeedback = () => {
     axios({
       method: 'GET',
-      url: '/feedback/getter'
+      url: '/feedback'
     }).then((response) => {
       console.log('App.js response is', response);
       console.log('App.js response data is', response.data);
@@ -31,39 +33,53 @@ class App extends Component {
     })
   }
 
+  submit = (value) => {
+    console.log('this is a button', value);
+    
+  }
+
   render() {
     return (
       <Router>
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Feedback!</h1>
-          <h4><i>Don't forget it!</i></h4>
-        </header>
-        <br/>
-        {/* FEELINGS */}
-        <Route path='/' exact>
-        <Feelings />
-        </Route>
-        {/* UNDERSTANDING */}
-        <Route path='/understanding'>
-        <Understanding />
-        </Route>
-        {/* SUPPORT */}
-        <Route path='/support'>
-        <Support />
-        </Route>
-        {/* COMMENTS */}
-        <Route path='/comments'>
-        <Comments />
-        </Route>
-        {/* REVIEW */}
-        <Route path='/review'>
-        <Review />
-        </Route>
+        <div className="App">
+          <header className="App-header">
+            <h1 className="App-title">Feedback!</h1>
+            <h4><i>Don't forget it!</i></h4>
+          </header>
+          <br/>
+          {/* FEELINGS */}
+          <Route path='/' exact>
+            <Feelings />
+          </Route>
+          {/* UNDERSTANDING */}
+          <Route path='/understanding'>
+            <Understanding />
+          </Route>
+          {/* SUPPORT */}
+          <Route path='/support'>
+            <Support />
+          </Route>
+          {/* COMMENTS */}
+          <Route path='/comments'>
+            <Comments />
+          </Route>
+          {/* REVIEW */}
+          <Route path='/review'>
+            <Review />
+          </Route>
+          {/* SUCCESS */}
+          <Route path='/success'>
+            <Success />
+          </Route>
+          {/* ADMIN */}
+          <Route path='/admin'>
+            <Admin renderFeedback={this.renderFeedback}/>
+          </Route>
       </div>
       </Router>
     );
   }
 }
+
 
 export default connect()(App);

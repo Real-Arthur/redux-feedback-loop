@@ -24,6 +24,7 @@ class Support extends Component {
     }
 
     onNext = (value) => {
+        if(this.state.number !== 0) {
         console.log('payload is', this.state.number);
         this.props.dispatch({
             type: "GET_SUPPORT",
@@ -31,6 +32,9 @@ class Support extends Component {
         });
         console.log('this.props.history', this.props.history);
         this.props.history.push('/comments');
+        } else {
+            alert('Submit 1-5')
+    }
     }
 
     render() {

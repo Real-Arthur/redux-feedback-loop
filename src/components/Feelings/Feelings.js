@@ -24,6 +24,7 @@ class Feeling extends Component {
     }
 
     onNext = (value) => {
+        if(this.state.number !== 0) {
         console.log('payload is', this.state.number);
         this.props.dispatch({
             type: "GET_FEELING",
@@ -31,7 +32,10 @@ class Feeling extends Component {
         });
         console.log('this.props.history', this.props.history);
         this.props.history.push('/understanding');
+    } else {
+        alert('Submit 1-5')
     }
+}
 
     render() {
         console.log('number is', this.state.number);
