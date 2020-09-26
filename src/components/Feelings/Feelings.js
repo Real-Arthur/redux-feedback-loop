@@ -23,6 +23,16 @@ class Feeling extends Component {
         }
     }
 
+    onNext = (value) => {
+        console.log('payload is', this.state.number);
+        this.props.dispatch({
+            type: "GET_FEELING",
+            payload: value
+        });
+        console.log('this.props.history', this.props.history);
+        this.props.history.push('/understanding');
+    }
+
     render() {
         console.log('number is', this.state.number);
         return(
@@ -34,7 +44,7 @@ class Feeling extends Component {
             max="5"
             onChange={(event) => this.handleChangeFor(event)}
             />
-            <button onClick={this.onNext}>NEXT</button>
+            <button onClick={()=>this.onNext(this.state.number)}>NEXT</button>
             </div>
             
         )
@@ -42,4 +52,4 @@ class Feeling extends Component {
 }
 
 
-export default connect()(Feeling);
+export default connect()(withRouter(Feeling));

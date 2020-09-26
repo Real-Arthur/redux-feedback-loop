@@ -7,7 +7,7 @@ import Comments from '../Comments/Comments';
 import Feelings from '../Feelings/Feelings';
 import Support from '../Support/Support';
 import Understanding from '../Understanding/Understanding';
-// import Review from '../Review/Review';
+import Review from '../Review/Review';
 
 class App extends Component {
   componentDidMount() {
@@ -17,7 +17,7 @@ class App extends Component {
   renderFeedback = () => {
     axios({
       method: 'GET',
-      url: '/feedback'
+      url: '/feedback/getter'
     }).then((response) => {
       console.log('App.js response is', response);
       console.log('App.js response data is', response.data);
@@ -55,6 +55,10 @@ class App extends Component {
         {/* COMMENTS */}
         <Route path='/comments'>
         <Comments />
+        </Route>
+        {/* REVIEW */}
+        <Route path='/review'>
+        <Review />
         </Route>
       </div>
       </Router>

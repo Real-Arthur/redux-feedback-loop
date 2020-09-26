@@ -23,6 +23,16 @@ class Support extends Component {
         }
     }
 
+    onNext = (value) => {
+        console.log('payload is', this.state.number);
+        this.props.dispatch({
+            type: "GET_SUPPORT",
+            payload: value
+        });
+        console.log('this.props.history', this.props.history);
+        this.props.history.push('/comments');
+    }
+
     render() {
         return(
             <div>
@@ -33,10 +43,11 @@ class Support extends Component {
                 max="5"
                 onChange={(event) => this.handleChangeFor(event)}
             />
+                <button onClick={()=>this.onNext(this.state.number)}>NEXT</button>
             </div>
         )
     }
 }
 
 
-export default connect()(Support);
+export default connect()(withRouter(Support));
