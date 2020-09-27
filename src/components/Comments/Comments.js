@@ -9,7 +9,7 @@ class Comments extends Component {
     state = {
         comments: ''
     }
-
+    // Handler for comments
     handleChangeFor = (event) => {
         console.log('this is a button', event.target.value)
             this.setState({
@@ -17,18 +17,20 @@ class Comments extends Component {
                 comments: event.target.value
             })
     }
-
+    // Sends comments to redux
     onNext = (value, props) => {
-            console.log('payload is', this.state.number);
+        console.log('payload is', this.state.number);
             this.props.dispatch({
                 type: "GET_COMMENTS",
                 payload: value
             });
-            console.log('this.props.history', this.props.history);
+        console.log('this.props.history', this.props.history);
+            // sends user to next page 'review'
             this.props.history.push('/review');
     }
-
+    // Back button handler
     back = () => {
+        // sends user back to previous page '/support'
         this.props.history.push('/support')
     }
 
@@ -36,18 +38,25 @@ class Comments extends Component {
         return(
             <div>
                 <h1>Any comments you want to leave?</h1>
-                <TextField 
-                type="text"
-                onChange={(event) => this.handleChangeFor(event)}
-            />
-            <ButtonGroup>
-            <Button variant="contained" color="primary" onClick={()=>this.onNext(this.state.comments)}>NEXT</Button>
-            <Button variant="outlined" color="secondary" onClick={() => this.back()}>BACK</Button>
-            </ButtonGroup>
+                    <TextField 
+                    type="text"
+                    onChange={(event) => this.handleChangeFor(event)}
+                    />
+                <ButtonGroup>
+                    <Button variant="contained" 
+                        color="primary" 
+                        onClick={()=>this.onNext(this.state.comments)}>
+                            NEXT
+                    </Button>
+                    <Button variant="outlined" 
+                        color="secondary" 
+                        onClick={() => this.back()}>
+                            BACK
+                    </Button>
+                </ButtonGroup>
             </div>
         )
     }
 }
-
 
 export default connect()(withRouter(Comments));

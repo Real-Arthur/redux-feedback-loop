@@ -9,9 +9,10 @@ class Understanding extends Component {
     state = {
         number: 0
     }
-
+    // handler for understanding rating
     handleChangeFor = (event) => {
         console.log('this is a button', event.target.value)
+        // sets state if requirements are met
         if(event.target.value >= 1 && event.target.value <= 5) {
             this.setState({
                 ...this.state,
@@ -22,11 +23,13 @@ class Understanding extends Component {
                 ...this.state,
                 number: 0
             })
+            // reminds user of requirements
             alert(`1-5`)
         }
     }
-
+    // sends understanding info to redux
     onNext = (value) => {
+        // sends info if requirements are met
         if (this.state.number !== 0){
         console.log('payload is', this.state.number);
         this.props.dispatch({
@@ -34,12 +37,14 @@ class Understanding extends Component {
             payload: value
         });
         console.log('this.props.history', this.props.history);
+        // sends user to next page 'support'
         this.props.history.push('/support');
         } else {
+            // reminds user of requirements
             alert('Submit 1-5')
         }
     }
-
+    // send user back to previous page
     back = () => {
         this.props.history.push('/')
     }
@@ -49,21 +54,28 @@ class Understanding extends Component {
         return(
             <div>
                 <h1>How well are you understanding the content?</h1>
-                <TextField 
-                type="number"
-                min="1"
-                max="5"
-                onChange={(event) => this.handleChangeFor(event)}
+                    <TextField 
+                        type="number"
+                        min="1"
+                        max="5"
+                        onChange={(event) => this.handleChangeFor(event)}
                 
-            />
-            <ButtonGroup>
-            <Button variant="contained" color="primary" onClick={() => this.onNext(this.state.number)}>NEXT</Button>
-            <Button variant="outlined" color="secondary" onClick={() => this.back()}>BACK</Button>
-            </ButtonGroup> 
+                    />
+                <ButtonGroup>
+                    <Button variant="contained" 
+                        color="primary" 
+                        onClick={() => this.onNext(this.state.number)}>
+                            NEXT
+                    </Button>
+                    <Button variant="outlined" 
+                        color="secondary" 
+                        onClick={() => this.back()}>
+                            BACK
+                    </Button>
+                </ButtonGroup> 
             </div>
         )
     }
 }
-
 
 export default connect()(withRouter(Understanding));

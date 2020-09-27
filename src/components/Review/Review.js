@@ -11,7 +11,7 @@ class Review extends Component {
        support: this.props.reduxState.supportReducer,
        comments: this.props.reduxState.commentsReducer
     }
-
+    // Sends all user submitted info to database
     submit = () => {
         axios({
             method: 'POST',
@@ -19,7 +19,9 @@ class Review extends Component {
             data: this.state
         }).then((response) => {
             console.log('response post', response);
+            // sends user to next page 'success'
             this.props.history.push('/Success');
+            // refreshed admin table
             this.props.renderFeedback();
         }).catch((error)=> {
             console.log('error is', error)
@@ -27,22 +29,26 @@ class Review extends Component {
     }
 
     render() {
-
+        /*
         console.log('reduxState is', this.props.reduxState.commentsReducer);
         console.log('reduxState is', this.props.reduxState.feelingReducer);
         console.log('reduxState is', this.props.reduxState.supportReducer);
         console.log('reduxState is', this.props.reduxState.understandingReducer);
         console.log('state is', this.state)
+        */
         return(
             <div>
-            <h1>Review Your Feedback</h1>
-        <p>Feelings: {this.state.feelings}</p>
-        <p>Understanding: {this.state.understanding}</p>
-        <p>Support: {this.state.support}</p>
-        <p>Comments: {this.state.comments}</p>
-        <Button variant="contained" color="primary" onClick={() => this.submit()}>SUBMIT</Button>
+                <h1>Review Your Feedback</h1>
+                    <p>Feelings: {this.state.feelings}</p>
+                    <p>Understanding: {this.state.understanding}</p>
+                    <p>Support: {this.state.support}</p>
+                    <p>Comments: {this.state.comments}</p>
+                <Button variant="contained" 
+                    color="primary" 
+                    onClick={() => this.submit()}>
+                        SUBMIT
+                </Button>
             </div>
-            
         )
     }
 }

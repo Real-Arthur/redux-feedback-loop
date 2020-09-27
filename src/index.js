@@ -7,6 +7,7 @@ import {createStore, combineReducers, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
 import logger from 'redux-logger';
 
+// default state
 const initialState = [];
 
 const feedbackReducer = (state =[], action) => {
@@ -70,17 +71,6 @@ const commentsReducer = (state=[], action) => {
     }
     return state;
 }
-
-const reset = (state =[], action) => {
-    if(action.type === 'RESET') {
-        state = initialState
-    }
-    if(action.type === 'RESET') {
-        state = initialState
-    }
-    return state;
-}
-
 
 const reduxStore = createStore(
     combineReducers({

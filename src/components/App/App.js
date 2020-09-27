@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
 import { connect } from 'react-redux';
-import { Route, HashRouter as Router, Link } from 'react-router-dom';
+import { Route, HashRouter as Router } from 'react-router-dom';
 import Comments from '../Comments/Comments';
 import Feelings from '../Feelings/Feelings';
 import Support from '../Support/Support';
@@ -13,9 +13,10 @@ import Admin from '../Admin/Admin'
 
 class App extends Component {
   componentDidMount() {
+    // call feedback get to db on load
     this.renderFeedback();
   }
-
+  // Gets info from database to be rendered
   renderFeedback = () => {
     axios({
       method: 'GET',
@@ -35,7 +36,6 @@ class App extends Component {
 
   submit = (value) => {
     console.log('this is a button', value);
-    
   }
 
   render() {
@@ -80,6 +80,5 @@ class App extends Component {
     );
   }
 }
-
 
 export default connect()(App);

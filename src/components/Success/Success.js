@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import Button from '@material-ui/core/Button';
 
 class Success extends Component {
-    
+    // Resets saved redux reducers and sends user 'home'
     success = () => {
         this.props.dispatch({
             type: 'RESET'
@@ -13,17 +13,17 @@ class Success extends Component {
     }
 
     render() {
-
         return(
             <div>
-            <h1>Thank You!</h1>
-            <Button variant="contained" color="primary" onClick={this.success}>Leave New Feedback</Button>
+                <h1>Thank You!</h1>
+                    <Button variant="contained" 
+                    color="primary" 
+                    onClick={this.success}>
+                        Leave New Feedback
+                    </Button>
             </div>
-            
         )
     }
 }
-
-
 
 export default connect()(withRouter(Success));
