@@ -20,7 +20,7 @@ class Success extends Component {
     render() {
         console.log('admin props', this.props.feedback)
         return(
-          <Box display="flex" width={1/4} justifyContent="center" flexDirection="row" flexWrap="wrap">
+          <Box display="flex" justifyContent="center" flexDirection="row" flexWrap="wrap">
             <TableContainer component={Paper} >
               <Table aria-label="simple table" >
             <TableHead>
