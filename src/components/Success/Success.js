@@ -12,6 +12,13 @@ class Success extends Component {
         this.props.history.push('/');
     }
 
+    admin = () => {
+        this.props.dispatch({
+            type: 'RESET'
+        })
+        this.props.history.push('/admin')
+    }
+
     render() {
         return(
             <div>
@@ -20,6 +27,12 @@ class Success extends Component {
                     color="primary" 
                     onClick={this.success}>
                         Leave New Feedback
+                    </Button>
+                    <br></br>
+                    <Button variant="contained" 
+                    color="primary" 
+                    onClick={this.admin}>
+                        Admin
                     </Button>
             </div>
         )
